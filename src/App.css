@@ -1,0 +1,83 @@
+:root {
+  --bg: #0b1437;
+  --panel: #121d4a;
+  --border: #26356f;
+  --text: #eef2ff;
+  --muted: #9aa8d6;
+  --yellow: #ffd21f;
+  --danger: #ff7a7a;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Poppins', system-ui, sans-serif;
+}
+
+.app { max-width: 1100px; margin: 0 auto; padding: 32px 16px 48px; }
+.app-header h1 { margin: 0 0 6px; font-size: 28px; font-weight: 800; }
+.app-header p { margin: 0 0 24px; color: var(--muted); }
+
+.app-main {
+  display: grid;
+  grid-template-columns: minmax(280px, 380px) 1fr;
+  gap: 28px;
+  align-items: start;
+}
+@media (max-width: 760px) {
+  .app-main { grid-template-columns: 1fr; }
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 22px;
+  position: sticky;
+  top: 16px;
+}
+@media (max-width: 760px) { .panel { position: static; } }
+
+.form { display: flex; flex-direction: column; gap: 16px; }
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field span { font-size: 14px; font-weight: 600; color: var(--muted); }
+.field input {
+  font: inherit; font-size: 20px; font-weight: 700;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #0b1437;
+  color: var(--text);
+  outline: none;
+}
+.field input:focus { border-color: var(--yellow); }
+.field input[aria-invalid='true'] { border-color: var(--danger); }
+.field em { font-style: normal; font-size: 13px; color: var(--danger); }
+
+.ejemplo {
+  font-size: 14px; line-height: 1.5; color: var(--muted);
+  background: rgba(255, 210, 31, 0.07);
+  border: 1px dashed rgba(255, 210, 31, 0.35);
+  border-radius: 10px; padding: 10px 12px;
+}
+.ejemplo b { color: var(--yellow); }
+
+.btn {
+  font: inherit; font-size: 18px; font-weight: 800;
+  padding: 14px; border: 0; border-radius: 12px; cursor: pointer;
+  background: linear-gradient(180deg, #ffe655, #ffd21f 50%, #f7ac00);
+  color: #0a1f5c;
+}
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.error { color: var(--danger); margin: 0; }
+
+.preview { display: flex; justify-content: center; min-width: 0; }
+.preview-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+.preview-scale { transform-origin: top left; width: 1080px; height: 1920px; }

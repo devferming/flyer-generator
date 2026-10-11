@@ -1,0 +1,203 @@
+/* Flyer 1080 x 1920 (formato historia 9:16) */
+.fl {
+  --navy: #0a1f5c;
+  --navy-2: #071645;
+  --blue: #1452d6;
+  --yellow: #ffd21f;
+  --yellow-grad: linear-gradient(180deg, #ffe655 0%, #ffd21f 45%, #f7ac00 100%);
+  position: relative;
+  width: 1080px;
+  height: 1920px;
+  overflow: hidden;
+  font-family: 'Poppins', system-ui, sans-serif;
+  color: #fff;
+  background: #0a2a86;
+}
+.fl * { box-sizing: border-box; }
+
+.fl-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 70% 45% at 50% 38%, rgba(70, 140, 255, 0.55), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 50% 100%, rgba(30, 90, 230, 0.5), transparent 70%),
+    linear-gradient(180deg, #0c2f9a 0%, #0a2a86 40%, #081f6a 100%);
+}
+.fl-beams {
+  position: absolute; inset: -200px;
+  background: repeating-linear-gradient(115deg, rgba(255,255,255,0.035) 0 60px, transparent 60px 160px);
+}
+
+/* ---------- Encabezado ---------- */
+.fl-tag {
+  position: absolute; left: 36px; top: 46px;
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px 50px 14px 28px;
+  background: var(--yellow-grad);
+  border-radius: 22px 60px 22px 22px;
+  transform: rotate(-3deg);
+  box-shadow: 0 10px 0 #c98600, 0 18px 30px rgba(0,0,0,0.35);
+  color: var(--navy);
+}
+.fl-tag span { font-size: 66px; font-weight: 900; letter-spacing: -1px; line-height: 1; }
+.fl-sparks-top { position: absolute; left: 700px; top: 20px; transform: rotate(-20deg); }
+
+.fl-head-row {
+  position: absolute; left: 60px; top: 182px;
+  display: flex; align-items: center; gap: 34px;
+}
+.fl-rate {
+  background: var(--yellow-grad);
+  border-radius: 46px;
+  padding: 0 38px;
+  height: 214px;
+  display: flex; align-items: center;
+  transform: rotate(-2deg);
+  box-shadow: 0 12px 0 #c98600, 0 22px 40px rgba(0,0,0,0.4), inset 0 4px 0 rgba(255,255,255,0.5);
+}
+.fl-rate span {
+  font-weight: 900; color: var(--navy); line-height: 1; letter-spacing: -4px;
+  text-shadow: 4px 5px 0 rgba(255,255,255,0.55);
+}
+.fl-bcv { position: relative; }
+.fl-bcv-label { font-size: 92px; font-weight: 900; line-height: 0.95; letter-spacing: -1px; }
+.fl-bcv-value { font-weight: 800; line-height: 1.05; letter-spacing: -1px; }
+.fl-bcv-swoosh { display: block; margin-top: 2px; }
+
+.fl-script { font-family: 'Kaushan Script', 'Brush Script MT', cursive; }
+.fl-slogan {
+  position: absolute; right: 26px; top: 118px; width: 320px;
+  text-align: center; font-size: 60px; line-height: 1.02; color: #fff;
+  transform: rotate(-9deg);
+  text-shadow: 0 4px 10px rgba(0,0,0,0.35);
+}
+.fl-slogan div:first-child { color: var(--yellow); }
+.fl-slogan-swoosh { display: block; margin: 4px auto 0; }
+
+/* ---------- Banner ---------- */
+.fl-banner {
+  position: absolute; left: 170px; top: 410px; width: 740px; height: 196px;
+  background: linear-gradient(180deg, #0d2a7e, #071a55);
+  border: 4px solid rgba(110, 170, 255, 0.55);
+  border-radius: 34px;
+  box-shadow: 0 0 40px rgba(80, 150, 255, 0.45), 0 20px 40px rgba(0,0,0,0.4);
+  text-align: center;
+  padding-top: 10px;
+}
+.fl-banner-small { font-size: 52px; font-weight: 800; letter-spacing: 1px; line-height: 1.15; }
+.fl-banner-big {
+  font-size: 102px; font-weight: 900; line-height: 1.02; letter-spacing: -2px;
+  color: var(--yellow);
+  background: linear-gradient(180deg, #fff27a 0%, #ffd21f 50%, #f5a300 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 6px 0 #061445);
+}
+.fl-flag { position: absolute; z-index: 2; filter: drop-shadow(0 12px 14px rgba(0,0,0,0.45)); }
+.fl-flag-ve { left: -40px; top: 430px; transform: rotate(-8deg); }
+.fl-flag-co { right: -40px; top: 414px; transform: rotate(7deg); }
+
+.fl-ribbon { position: absolute; z-index: 1; filter: drop-shadow(0 10px 14px rgba(0,0,0,0.4)); }
+.fl-ribbon-left { left: -200px; top: 1450px; transform: rotate(32deg); }
+.fl-ribbon-right { right: -200px; top: 1450px; transform: rotate(-32deg) scaleX(-1); }
+
+/* ---------- Tabla ---------- */
+.fl-table {
+  position: absolute; z-index: 3;
+  left: 196px; top: 632px; width: 688px;
+  border-radius: 30px;
+  overflow: hidden;
+  background: #0a1d5e;
+  border: 4px solid rgba(90, 160, 255, 0.85);
+  box-shadow: 0 0 36px rgba(60, 140, 255, 0.55), 0 24px 50px rgba(0,0,0,0.45);
+}
+.fl-thead { display: flex; height: 84px; }
+.fl-th {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  line-height: 1;
+}
+.fl-th span { font-size: 44px; font-weight: 900; letter-spacing: -0.5px; }
+.fl-th small { font-size: 15px; font-weight: 700; letter-spacing: 1.5px; margin-top: 4px; opacity: 0.85; }
+.fl-th-send { width: 46%; background: var(--yellow-grad); color: var(--navy); }
+.fl-th-recv { width: 54%; background: linear-gradient(180deg, #2f7bff, #1452d6); color: #fff; }
+
+.fl-tbody { padding: 6px 0 10px; }
+.fl-tr { display: flex; height: 45px; align-items: center; }
+.fl-tr.odd { background: rgba(40, 100, 230, 0.35); }
+.fl-td { font-weight: 800; line-height: 1; }
+.fl-td-send {
+  width: 46%; text-align: center; font-size: 38px; letter-spacing: -0.5px;
+  border-right: 2px solid rgba(120, 170, 255, 0.35);
+  height: 100%; display: flex; align-items: center; justify-content: center;
+}
+.fl-td-recv { width: 54%; padding-left: 34px; display: flex; align-items: baseline; gap: 10px; }
+.fl-td-recv .bs { font-size: 37px; letter-spacing: -0.5px; }
+.fl-td-recv .usd { font-size: 31px; color: var(--yellow); }
+
+/* ---------- Columna izquierda ---------- */
+.fl-badges {
+  position: absolute; left: 10px; top: 700px; width: 180px; z-index: 2;
+  display: flex; flex-direction: column; gap: 82px;
+}
+.fl-badge { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.fl-badge-circle {
+  width: 112px; height: 112px; border-radius: 50%;
+  border: 5px solid var(--yellow);
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(6, 20, 70, 0.45);
+  box-shadow: 0 0 22px rgba(255, 210, 31, 0.3);
+  margin-bottom: 14px;
+}
+.fl-badge-title { font-size: 27px; font-weight: 900; line-height: 1.1; }
+.fl-badge-sub { font-size: 17px; font-weight: 700; line-height: 1.2; margin-bottom: 4px; }
+
+/* ---------- Columna derecha ---------- */
+.fl-arrow { position: absolute; left: 912px; top: 790px; z-index: 2; }
+.fl-close {
+  position: absolute; left: 890px; top: 950px; width: 190px; z-index: 2;
+  text-align: center; transform: rotate(-10deg);
+  line-height: 1.02; text-shadow: 0 4px 10px rgba(0,0,0,0.35);
+}
+.fl-close div { font-size: 60px; }
+.fl-close .w { color: #fff; }
+.fl-close .y { color: var(--yellow); }
+.fl-close .big { font-size: 74px; }
+.fl-heart { position: absolute; left: 960px; top: 1290px; transform: rotate(14deg); z-index: 2; }
+
+/* ---------- Contacto ---------- */
+.fl-contact { position: absolute; left: 0; top: 1660px; width: 1080px; height: 170px; z-index: 4; }
+.fl-chat {
+  position: absolute; left: 110px; top: 0; width: 170px; height: 170px;
+  border-radius: 40px;
+  background: linear-gradient(180deg, #5fe07a 0%, #25b545 60%, #179235 100%);
+  border: 5px solid #fff;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 14px 30px rgba(0,0,0,0.45);
+  z-index: 2;
+}
+.fl-contact-pill {
+  position: absolute; left: 262px; top: -6px; z-index: 3;
+  background: var(--yellow-grad); color: var(--navy);
+  font-size: 34px; font-weight: 900; letter-spacing: 1px;
+  padding: 6px 34px 4px; border-radius: 40px;
+  box-shadow: 0 6px 0 #c98600;
+}
+.fl-contact-box {
+  position: absolute; left: 240px; top: 46px; width: 730px; height: 124px;
+  border-radius: 0 34px 34px 0;
+  background: linear-gradient(180deg, #0e2f8c, #071a55);
+  border: 4px solid rgba(110, 170, 255, 0.7);
+  box-shadow: 0 0 30px rgba(80, 150, 255, 0.4);
+  display: flex; align-items: center; justify-content: center;
+  padding-left: 40px;
+}
+.fl-contact-box span { font-weight: 900; letter-spacing: -1px; line-height: 1; white-space: nowrap; }
+.fl-sparks-l { position: absolute; left: 20px; top: 40px; transform: rotate(-10deg); }
+.fl-sparks-r { position: absolute; right: 18px; top: 40px; transform: scaleX(-1) rotate(-10deg); }
+
+/* ---------- Pie ---------- */
+.fl-footer {
+  position: absolute; left: 0; top: 1858px; width: 1080px; z-index: 4;
+  display: flex; align-items: center; justify-content: center; gap: 30px;
+}
+.fl-footer i { display: block; width: 150px; height: 4px; border-radius: 2px; background: var(--yellow); }
+.fl-footer span { font-size: 27px; font-weight: 700; letter-spacing: 7px; }
