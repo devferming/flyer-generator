@@ -18,7 +18,7 @@ export default function App() {
   const [telefono, setTelefono] = useState('+57 3114396761')
   const [descargando, setDescargando] = useState(false)
   const [error, setError] = useState('')
-  const [escala, setEscala] = useState(0.35)
+  const [escala, setEscala] = useState(0.3)
 
   const flyerRef = useRef(null)
   const marcoRef = useRef(null)
@@ -35,7 +35,7 @@ export default function App() {
     if (!el) return
     const ro = new ResizeObserver(([entry]) => {
       const w = entry.contentRect.width
-      setEscala(Math.min(w / FLYER_W, 0.5))
+      if (w > 0) setEscala(w / FLYER_W)
     })
     ro.observe(el)
     return () => ro.disconnect()
@@ -120,8 +120,8 @@ export default function App() {
           </form>
         </section>
 
-        <section className="preview" ref={marcoRef}>
-          <div className="preview-frame" style={{ width: FLYER_W * escala, height: FLYER_H * escala }}>
+        <section className="preview">
+          <div className="preview-frame" ref={marcoRef}>
             <div className="preview-scale" style={{ transform: `scale(${escala})` }}>
               <Flyer ref={flyerRef} tasa={tasa} bcv={bcv} telefono={telefono} />
             </div>

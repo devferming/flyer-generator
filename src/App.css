@@ -9,7 +9,7 @@
 }
 
 * { box-sizing: border-box; }
-html, body { margin: 0; }
+html, body { margin: 0; overflow-x: hidden; }
 body {
   background: var(--bg);
   color: var(--text);
@@ -22,12 +22,12 @@ body {
 
 .app-main {
   display: grid;
-  grid-template-columns: minmax(280px, 380px) 1fr;
+  grid-template-columns: minmax(280px, 380px) minmax(0, 1fr);
   gap: 28px;
   align-items: start;
 }
 @media (max-width: 760px) {
-  .app-main { grid-template-columns: 1fr; }
+  .app-main { grid-template-columns: minmax(0, 1fr); }
 }
 
 .panel {
@@ -44,6 +44,7 @@ body {
 .field { display: flex; flex-direction: column; gap: 6px; }
 .field span { font-size: 14px; font-weight: 600; color: var(--muted); }
 .field input {
+  width: 100%; min-width: 0;
   font: inherit; font-size: 20px; font-weight: 700;
   padding: 12px 14px;
   border-radius: 10px;
@@ -76,8 +77,15 @@ body {
 .preview { display: flex; justify-content: center; min-width: 0; }
 .preview-frame {
   position: relative;
+  width: 100%;
+  max-width: 540px;
+  aspect-ratio: 9 / 16;
   overflow: hidden;
   border-radius: 14px;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
 }
-.preview-scale { transform-origin: top left; width: 1080px; height: 1920px; }
+.preview-scale {
+  position: absolute; top: 0; left: 0;
+  transform-origin: top left;
+  width: 1080px; height: 1920px;
+}
