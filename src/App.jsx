@@ -65,8 +65,8 @@ export default function App() {
     }
   }
 
-  const ejemploBs = tasaOk ? 100000 / tasa : NaN
-  const ejemploUsd = valido ? ejemploBs / bcv : NaN
+  const ejemploBs = bcvOk ? 100 * bcv : NaN
+  const ejemploPesos = valido ? Math.ceil(Math.round(ejemploBs * tasa * 100) / 100) : NaN
 
   return (
     <div className="app">
@@ -108,9 +108,9 @@ export default function App() {
             </label>
 
             <div className="ejemplo">
-              <strong>Ejemplo:</strong> envía 100.000 pesos → 100.000 ÷ {tasaOk ? fmtTasa(tasa) : '—'} ={' '}
-              <b>{fmt(ejemploBs)} Bs</b>, equivalentes a {fmt(ejemploBs)} ÷ {bcvOk ? fmt(bcv, 2) : '—'} ={' '}
-              <b>${fmt(ejemploUsd, 1)}</b> BCV.
+              <strong>Ejemplo:</strong> para que lleguen <b>$100</b> BCV → 100 × {bcvOk ? fmt(bcv, 2) : '—'} ={' '}
+              <b>{fmt(ejemploBs, 2)} Bs</b>, y se envían {fmt(ejemploBs, 2)} × {tasaOk ? fmtTasa(tasa) : '—'} ={' '}
+              <b>{fmt(ejemploPesos)} pesos</b>.
             </div>
 
             <button type="submit" className="btn" disabled={!valido || descargando}>

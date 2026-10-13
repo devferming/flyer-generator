@@ -32,13 +32,15 @@ export function fmtTasa(n) {
   return group(i) + (d ? ',' + d : '')
 }
 
-export const MONTOS = Array.from({ length: 20 }, (_, i) => (i + 1) * 10000)
+// Montos en dólares BCV que se muestran en la tabla
+export const DOLARES = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 150, 200]
 
-// recibe (Bs) = pesos / tasa ; dólares BCV = Bs / precio BCV
-export function calcularFilas(tasa, bcv, montos = MONTOS) {
-  return montos.map((pesos) => {
-    const bs = tasa > 0 ? pesos / tasa : NaN
-    const usd = bcv > 0 ? bs / bcv : NaN
-    return { pesos, bs, usd }
+// bolívares = dólares × precio BCV ; pesos a enviar = bolívares × tasa
+// Los pesos se redondean hacia arriba al peso entero para que siempre alcance.
+export function calcularFilas(tasa, bcv, dolares = DOLARES) {
+  return dolares.map((usd) => {
+    const bs = bcv > 0 ? usd * bcv : NaN
+    const pesos = tasa > 0 ? Math.ceil(Math.round(bs * tasa * 100) / 100) : NaN
+    return { usd, bs, pesos }
   })
 }

@@ -80,23 +80,25 @@ const Flyer = forwardRef(function Flyer({ tasa, bcv, telefono }, ref) {
       {/* ---------- Tabla ---------- */}
       <div className="fl-table">
         <div className="fl-thead">
-          <div className="fl-th fl-th-send">
-            <span>ENVÍA</span>
-            <small>PESOS COP</small>
+          <div className="fl-th fl-th-usd">
+            <span>DÓLARES</span>
+            <small>BCV</small>
           </div>
-          <div className="fl-th fl-th-recv">
-            <span>› RECIBE ‹</span>
-            <small>BOLÍVARES (USD BCV)</small>
+          <div className="fl-th fl-th-cop">
+            <span>PESOS</span>
+            <small>ENVÍAS</small>
+          </div>
+          <div className="fl-th fl-th-ves">
+            <span>BOLÍVARES</span>
+            <small>RECIBEN</small>
           </div>
         </div>
         <div className="fl-tbody">
           {filas.map((f, i) => (
-            <div className={'fl-tr' + (i % 2 ? ' odd' : '')} key={f.pesos}>
-              <div className="fl-td fl-td-send">{fmt(f.pesos)}</div>
-              <div className="fl-td fl-td-recv">
-                <span className="bs">{fmt(f.bs)}</span>
-                <span className="usd">({fmt(f.usd, 1)})</span>
-              </div>
+            <div className={'fl-tr' + (i % 2 ? ' odd' : '')} key={f.usd}>
+              <div className="fl-td fl-td-usd">${fmt(f.usd)}</div>
+              <div className="fl-td fl-td-cop">{fmt(f.pesos)}</div>
+              <div className="fl-td fl-td-ves">{fmt(f.bs, 2)}</div>
             </div>
           ))}
         </div>
